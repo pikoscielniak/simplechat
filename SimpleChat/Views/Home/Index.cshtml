@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="signalrChat">
+<head>
+    <title>Chat</title>
+    <script src="~/Scripts/libs/jquery-1.8.2.js"></script>
+</head>
+<body>
+    <div ng-controller="mainController">
+        <h2>Chat</h2>
+        <div>
+            <label>Room:
+                <input ng-model="room" /></label>
+            <button ng-click="joinRoom()">Join</button></div>
+        <div>
+            <label>Message:
+                <input ng-model="message" /></label>
+        </div>
+        <div>
+            <button ng-click="sendMessage()">Send Message</button>
+            <button ng-click="sendMessageToRoom()">Send Message to room</button>
+        </div>
+        <ul>
+            <li ng-repeat="message in messages">{{ message }}</li>
+        </ul>
+    </div>
+
+    <script src="~/Scripts/libs/jquery.signalR-1.0.0.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="~/Scripts/libs/angular.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+</body>
+</html>
